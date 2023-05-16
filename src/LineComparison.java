@@ -1,10 +1,9 @@
-import java.util.Scanner;
-
 public class LineComparison {
 
     int lineNumber;
     double firstPointX, firstPointY;
     double secondPointX, secondPointY;
+    double length;
 
     public LineComparison(int lineNumber) {
         this.lineNumber = lineNumber;
@@ -19,8 +18,15 @@ public class LineComparison {
 
     public double calculatingLength() {
 
-        double length = Math.sqrt(Math.pow((secondPointX - firstPointX), 2) + Math.pow((secondPointY - firstPointY), 2));
+        this.length = Math.sqrt(Math.pow((secondPointX - firstPointX), 2) + Math.pow((secondPointY - firstPointY), 2));
         System.out.println("Length of Line" + lineNumber + " = " + length);
         return length;
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+
+        LineComparison other = (LineComparison) obj;
+        return this.length == other.length;
     }
 }
